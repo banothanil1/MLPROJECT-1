@@ -1,0 +1,15 @@
+ml-project-1
+------------
+** always use this command to create a conda environment because with this the conda enviroment also get created and also if we installl any libraries then they will be added inside this library folder of env folder. "conda create -p venv python==3.8 -y" 
+
+** in the beginning always go and create the gitignore file from the github their just select the python template all the ignore files will be auto comming and lateer on we will automize that changes.
+
+** then afer do the setup.py.using this setup.py we will be able to builiding the entire machine learning package into a package and deploy it in pypy.
+
+** anything that has __init__.py is considered to be a package and the setup.py will find the entire folder and search for init and build the package.
+
+** just create a funciton inside the setup.py inorder to read the packages from passed file ie requirement.txt and return a list of packages. manually writting it would be hectic in setup.py. 
+
+** -e . helps to link the setup.py and execute it. and that time only all the packages available inside the ml going to get build and made a package.
+
+** whatever the development we everything comes under the src folder present inside the project.
