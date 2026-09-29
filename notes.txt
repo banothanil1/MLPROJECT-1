@@ -13,3 +13,13 @@ ml-project-1
 ** -e . helps to link the setup.py and execute it. and that time only all the packages available inside the ml going to get build and made a package.
 
 ** whatever the development we everything comes under the src folder present inside the project.
+
+** in src create a folder with name component its a package. it contaions the files like data ingestion,data transfromation,model trraining part.
+
+** pipelines folder has the model training and model predicting.
+
+** since we implement the logging,expection,utils(helpers) in entire project so they should created at the src folder level.
+
+** in exception import sys. sys have all the details about the errors which we are gettting.
+
+**
