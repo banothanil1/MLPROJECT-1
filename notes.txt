@@ -22,4 +22,22 @@ ml-project-1
 
 ** in exception import sys. sys have all the details about the errors which we are gettting.
 
-**
+** logging → Python's built-in system for recording messages/errors.
+os → Used to work with folders and file paths.
+datetime → Used to get the current date and time.
+
+** logging.basicConfig(
+    filename=LOG_FILE_PATH,
+    format="[ %(asctime)s ] %(lineno)d %(name)s - %(message)s",
+    level=logging.INFO
+) ("Whenever I use logging.info(), logging.error(), etc., write the information into my log file.")
+
+** MyProject/
+│
+├── logs/
+│   └── 09_30_2026_07_20_15.log
+│
+├── app.py
+└── logger.py
+
+** 
