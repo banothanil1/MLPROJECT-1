@@ -51,4 +51,12 @@ datetime → Used to get the current date and time.
 ** steps related to the end to end student performnence prediction project
     1.devide the dataset into train test split
     2.standardize it using columnTransformer and one hot encoder.
-    3.
+    3.train the model using the standardized datat
+    4.check the model performence based on different metric for classification and regression problem
+    5.hyperparameter it using the different hyderparameters and find the best hyperparameter using the gridsearch cv or random search cv and retrain the model using the best predicted hyperparameter by gridsearch or random search.
+
+** in big companies their will a biggdata engineers who basically brings the data from diffrent sources and put them in a different bases and based on that scientist need to use that data for model bnuilding or prediction.
+
+** inside the data ingestion component. we give the different inputs to this component that is where the test/train/raw data should be stored once retrieved.and for defining the inputs we can use the @dataclass decorator. and if we have other function as well then its better to use the normal class with init.
+
+** 
