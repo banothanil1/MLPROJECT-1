@@ -59,4 +59,12 @@ datetime → Used to get the current date and time.
 
 ** inside the data ingestion component. we give the different inputs to this component that is where the test/train/raw data should be stored once retrieved.and for defining the inputs we can use the @dataclass decorator. and if we have other function as well then its better to use the normal class with init.
 
-** 
+** always make sure you logg everything as much as possible as its very much important if any exceptions come. and always use try except block.
+
+** in data_transformation.py we will perform everything related to like missing values, transfromation, standardization and impupations techniques will be performed in here.
+
+** in get_columnTranseformer object in data transformation function just make only pipelines and return the columnTransformer object
+
+** in intiate data transformation use the columnTransformer object and fit_transform for train data and transeform for test data.
+
+** always create the save objects functions in utils and use them in data ingestion and transformation files.
