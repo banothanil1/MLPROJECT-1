@@ -40,4 +40,15 @@ datetime → Used to get the current date and time.
 ├── app.py
 └── logger.py
 
-** 
+** if the ipykernal is not setup is giving error then resolve using below commands running in powershell (the easiest solution is to recreate the virtual environment.)
+    1.python --version
+    2.python -m venv venv
+    3.dir .\venv\Scripts
+    4..\venv\Scripts\Activate.ps1
+    5.python -m pip install --upgrade pip
+    6.python -m pip install ipykernel
+
+** steps related to the end to end student performnence prediction project
+    1.devide the dataset into train test split
+    2.standardize it using columnTransformer and one hot encoder.
+    3.
