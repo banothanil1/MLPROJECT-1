@@ -51,7 +51,75 @@ class ModelTraining:
             X_test = test_arr[:,:-1]
             y_test = test_arr[:,-1]
 
-            model_report = evaluate_model(X_train,y_train,X_test,y_test,models)
+            params = {
+                "Linear Regression" : {
+                    'fit_intercept': [True, False],
+                    'positive': [True, False]},
+                "Decision Tree" : {
+                    'max_depth': [3, 5, 10, 15, 20, None],
+                    'min_samples_split': [2, 5, 10, 20],
+                    'min_samples_leaf': [1, 2, 4, 8],
+                    'max_features': [None, 'sqrt', 'log2']
+                } ,
+                "Ridge" : {
+                    'alpha': [0.001, 0.01, 0.1, 1, 10, 100],
+                    'solver': ['auto', 'svd', 'cholesky', 'lsqr']
+                },
+                "Lasso" : {
+                    'alpha': [0.0001, 0.001, 0.01, 0.1, 1, 10],
+                    'max_iter': [1000, 5000, 10000]
+                },
+                "Elastic Net" : {
+                    'alpha': [0.0001, 0.001, 0.01, 0.1, 1],
+                    'l1_ratio': [0.1, 0.3, 0.5, 0.7, 0.9]
+                },
+                "SVR" : {
+                    'C': [0.1, 1, 10, 100],
+                    'kernel': ['linear', 'rbf', 'poly'],
+                    'gamma': ['scale', 'auto'],
+                    'epsilon': [0.01, 0.1, 0.2]
+                },
+                "Random Forest" : {
+                    'n_estimators': [100, 200, 300],
+                    'max_depth': [None, 5, 10, 20, 30],
+                    'min_samples_split': [2, 5, 10],
+                    'min_samples_leaf': [1, 2, 4],
+                    'max_features': [1.0, 'sqrt', 'log2']
+                },
+                "Gradient Boosting" : {
+                    'n_estimators': [100, 200, 300],
+                    'learning_rate': [0.01, 0.05, 0.1],
+                    'max_depth': [2, 3, 5],
+                    'min_samples_split': [2, 5, 10],
+                    'min_samples_leaf': [1, 2, 4]
+                },
+                "AdaBoost" : {
+                    'n_estimators': [50, 100, 200],
+                    'learning_rate': [0.01, 0.05, 0.1, 0.5, 1.0],
+                    'loss': ['linear', 'square', 'exponential']
+                },
+                "KNN": {
+                    'n_neighbors': [3, 5, 7, 10, 15, 20],
+                    'weights': ['uniform', 'distance'],
+                    'p': [1, 2]
+                },
+                "XGBoost" : {
+                    'n_estimators': [100, 200, 300],
+                    'learning_rate': [0.01, 0.05, 0.1],
+                    'max_depth': [3, 5, 7],
+                    'min_child_weight': [1, 3, 5],
+                    'subsample': [0.8, 1.0],
+                    'colsample_bytree': [0.8, 1.0]
+                },
+                "CatBoost": {
+                    'iterations': [300, 500, 1000],
+                    'learning_rate': [0.01, 0.05, 0.1],
+                    'depth': [4, 6, 8, 10],
+                    'l2_leaf_reg': [1, 3, 5, 10]
+                }
+            }
+
+            model_report = evaluate_model(X_train,y_train,X_test,y_test,models,params = params)
 
             best_score = max(list(model_report.values()))
 
