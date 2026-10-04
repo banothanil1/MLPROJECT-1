@@ -13,5 +13,5 @@ setup(
     author='banoth anil nayak',
     author_email='banothanilnayak50@gmail.com',
     packages= find_packages(),
-    install_requires=get_packages('requirement.txt')
+    install_requires=get_packages('requirements.txt')
 )
