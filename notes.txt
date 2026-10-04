@@ -68,3 +68,7 @@ datetime → Used to get the current date and time.
 ** in intiate data transformation use the columnTransformer object and fit_transform for train data and transeform for test data.
 
 ** always create the save objects functions in utils and use them in data ingestion and transformation files.
+
+** flask library has the the three sub libraries Flask,render_html,request. at a time you can load.
+
+** 

@@ -127,6 +127,8 @@ class ModelTraining:
                 raise CustomException("No Best Model Found")
                     
             best_model_name = list(model_report.keys())[list(model_report.values()).index(best_score)]
+
+            best_model_name = models[best_model_name]
             
             logging.info(f"Best Model Name is {best_model_name} and best score is {best_score}")
             

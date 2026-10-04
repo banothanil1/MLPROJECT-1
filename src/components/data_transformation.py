@@ -50,9 +50,9 @@ class DataTransformation:
 
             return preprocesser
         
-        except CustomException as e:
+        except Exception as e:
             logging.info('Exception has been raised while returing the column transeformer preprocess.')
-            raise(e,sys)
+            raise CustomException(e,sys)
 
     def intiate_data_transeformation(self,train_data_path,test_data_path):
         '''this function preprocess the object returned by get column transeformer function '''
@@ -86,8 +86,8 @@ class DataTransformation:
                         ]
             return (train_arr,test_arr,self.DataConfigPreprocesserpath)
 
-        except CustomException as e:
+        except Exception as e:
             logging.info('Exception has been raised while intiating the data transformation.')
-            raise(e,sys)
+            raise CustomException(e,sys)
             
 

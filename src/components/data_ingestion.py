@@ -36,8 +36,8 @@ class DataIngestion:
             test_data.to_csv(self.config_paths.test_data_path,index=False,header=True)
             logging.info("Test Data Created")
 
-        except CustomException as e:
-            raise(e,sys)
+        except Exception as e:
+            raise CustomException(e,sys)
 
 
 if __name__ == "__main__":

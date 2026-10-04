@@ -46,3 +46,13 @@ def evaluate_model(X_train,y_train,X_test,y_test,models,params):
     
     except Exception as e:
         raise CustomException(e,sys)
+
+def load_object (filePath):
+    '''this helper function will load the object based on the filePath passed and returns'''
+    try:
+        with open (filePath,'rb') as obj:
+            object = dill.load(obj)
+        return object 
+    
+    except Exception as e:
+        raise CustomException(e,sys)
