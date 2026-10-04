@@ -2,6 +2,7 @@ import pandas as pd
 import sys
 from src.utils import load_object
 from src.exception import CustomException
+import os
 
 class PredictScore : 
     def __init__(self):
@@ -20,8 +21,9 @@ class PredictPipeline:
     def predict_score(self,new_data):
         '''this function will take the new input data points and applies standardization and predict the score'''
         try:
-            model_path = 'Artifact\model.pkl'
-            preprocessor_path = 'Artifact\preprocesser.pkl'
+            BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+            model_path = os.path.join(BASE_DIR, 'Artifact', 'model.pkl')
+            preprocessor_path = os.path.join(BASE_DIR, 'Artifact', 'preprocesser.pkl')
             model = load_object(filePath = model_path)            
             print("MODEL:", model)
             print("MODEL TYPE:", type(model))
