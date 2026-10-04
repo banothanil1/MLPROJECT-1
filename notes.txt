@@ -89,3 +89,53 @@ Elastic Beanstalk manages the application environment and required AWS infrastru
 The Python application can be configured using configuration files such as python.config.
 The application runs inside an Elastic Beanstalk environment.
 The overall flow is: GitHub → CodePipeline → Elastic Beanstalk → Application.
+
+1. Initially, I entered the wrong project/repository name **`StudentMarksPrediction`**. The actual GitHub repository was **`MLPROJECT-1`**, so I corrected the repository selection.
+
+2. Created an **AWS CodeConnections** connection to connect GitHub with AWS CodePipeline.
+
+3. The GitHub connection showed **Available**, but the repository/branch was not appearing in CodePipeline.
+
+4. Checked **GitHub → Settings → Applications → Installed GitHub Apps**, but **AWS Connector for GitHub** was not listed.
+
+5. GitHub authorization was completed, but the expected AWS Connector installation/authorization screen did not appear.
+
+6. Initially selected the wrong **Docker-based CodePipeline template**, which contained options like **ECR, Docker Build Context, DockerFilePath, and Image Tag**.
+
+7. Realized that Docker/ECR/ECS was not required because the application needed to be deployed to **AWS Elastic Beanstalk**.
+
+8. Went back to the pipeline template selection and selected **Build custom pipeline**.
+
+9. Created the pipeline with the name **`MLPROJECT-1-Pipeline`**.
+
+10. Selected **Superseded** as the pipeline execution mode.
+
+11. Selected **New service role** so AWS CodePipeline could create its required IAM service role.
+
+12. Used the **Default location** for the artifact store.
+
+13. Used the **AWS Managed Key** as the encryption key.
+
+14. For the **Build stage**, I initially checked the available options but skipped the build stage because the project could be deployed directly from the GitHub source artifact.
+
+15. For the **Test stage**, I skipped testing because no automated test stage was configured for the project yet.
+
+16. The **Deploy stage** initially did not show the required Elastic Beanstalk environment, so I had to configure/create the Elastic Beanstalk application and environment.
+
+17. During deployment, I received the IAM error:
+    **`The provided role does not have the elasticbeanstalk:CreateApplicationVersion permission`**
+
+18. I initially opened **IAM Roles Anywhere** by mistake, but this was not the correct place for the CodePipeline service-role permissions.
+
+19. Corrected this by going to **AWS IAM → Roles** and locating the **CodePipeline service role**.
+
+20. Updated the CodePipeline service role permissions to allow the required **Elastic Beanstalk actions**, including `elasticbeanstalk:CreateApplicationVersion`.
+
+21. After updating the IAM permissions, I reran the pipeline.
+
+22. The pipeline successfully retrieved the code from **GitHub**, deployed it through **AWS CodePipeline**, and released it to **AWS Elastic Beanstalk**.
+
+23. Final deployment flow:
+    **GitHub → AWS CodePipeline → AWS Elastic Beanstalk → Flask ML Application → Cricket Match Score Prediction**.
+
+24. The project was successfully deployed and made accessible through the Elastic Beanstalk environment.
