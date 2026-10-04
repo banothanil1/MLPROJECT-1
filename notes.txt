@@ -76,3 +76,16 @@ datetime → Used to get the current date and time.
 ** always while deploying the code creat a application.py similar to app.py and remove the debugger is true and port no. (this should be done)
 
 **application.py becouse aws accepts in this way only.
+
+**steps to Deploy in aws:
+GitHub is used to store the application source code.
+Developers push the latest code changes to the GitHub repository.
+AWS CodePipeline is connected to the GitHub repository.
+CodePipeline detects changes in the repository and starts the pipeline.
+CodePipeline automates the process of delivering the application to AWS.
+The latest code is passed from GitHub through the pipeline.
+Elastic Beanstalk is used to deploy and run the application.
+Elastic Beanstalk manages the application environment and required AWS infrastructure.
+The Python application can be configured using configuration files such as python.config.
+The application runs inside an Elastic Beanstalk environment.
+The overall flow is: GitHub → CodePipeline → Elastic Beanstalk → Application.
